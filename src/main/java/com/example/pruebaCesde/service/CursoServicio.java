@@ -5,6 +5,7 @@ import com.example.pruebaCesde.dto.DocenteDTO;
 import com.example.pruebaCesde.entities.Curso;
 import com.example.pruebaCesde.entities.Docente;
 import com.example.pruebaCesde.repositories.CursoRepositorio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class CursoServicio {
 
 
+    @Autowired
     private final CursoRepositorio cursoRepositorio;
 
     public CursoServicio(CursoRepositorio cursoRepositorio) {
