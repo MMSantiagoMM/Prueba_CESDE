@@ -6,6 +6,7 @@ import com.example.pruebaCesde.repositories.DocenteRepositorio;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +17,15 @@ public class DocenteServicio {
 
     public DocenteServicio(DocenteRepositorio docenteRepositorio) {
         this.docenteRepositorio = docenteRepositorio;
+    }
+
+
+    public Optional<Docente> obtenerDocente(String documento){
+        return Optional.of(docenteRepositorio.findById(documento)).orElseThrow(()-> new RuntimeException());
+    }
+
+    public List<Docente> obtenerTodos(){
+        return docenteRepositorio.findAll();
     }
 
     public Docente crearDocente(DocenteDTO dto){

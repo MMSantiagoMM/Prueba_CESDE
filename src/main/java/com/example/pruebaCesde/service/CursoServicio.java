@@ -7,6 +7,9 @@ import com.example.pruebaCesde.entities.Docente;
 import com.example.pruebaCesde.repositories.CursoRepositorio;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class CursoServicio {
 
@@ -30,6 +33,14 @@ public class CursoServicio {
 
         return cursoRepositorio.save(curso);
 
+    }
+
+    public Optional<Curso> obtenerCurso(String nombre){
+        return Optional.of(cursoRepositorio.findById(nombre)).orElseThrow(()-> new RuntimeException());
+    }
+
+    public List<Curso> obtenerTodos(){
+        return cursoRepositorio.findAll();
     }
 
 
