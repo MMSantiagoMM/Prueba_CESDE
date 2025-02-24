@@ -6,6 +6,7 @@ import com.example.pruebaCesde.dto.DocenteDTO;
 import com.example.pruebaCesde.entities.Curso;
 import com.example.pruebaCesde.entities.Docente;
 import com.example.pruebaCesde.service.CursoServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,8 @@ import java.util.List;
 @RequestMapping("api/v1/curso")
 public class CursoController {
 
+    @Autowired
     private final CursoServicio servicio;
-
 
     public CursoController(CursoServicio servicio) {
         this.servicio = servicio;
