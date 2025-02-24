@@ -41,8 +41,8 @@ public class DocenteController {
     @PutMapping("/{documento}")
     public ResponseEntity<Docente> actualizar (@PathVariable String documento, @RequestBody DocenteDTO dto) {
         try {
-            Docente updatedDocente = servicio.actualizarDocente(dto, documento);
-            return ResponseEntity.ok(updatedDocente);
+            Docente actualizarDocente = servicio.actualizarDocente(dto, documento);
+            return ResponseEntity.ok(actualizarDocente);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }

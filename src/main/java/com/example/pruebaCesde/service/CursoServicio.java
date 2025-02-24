@@ -20,7 +20,7 @@ public class CursoServicio {
         this.cursoRepositorio = cursoRepositorio;
     }
 
-    public Curso crearcurso(CursoDTO dto){
+    public Curso crearCurso(CursoDTO dto){
 
         Curso curso = new Curso();
 
