@@ -68,6 +68,7 @@ Para acceder a la documentación, inicia la aplicación y dirígete a:
 O accede directamente desde el navegador:
 
 http://localhost:8080/swagger-ui.html
+https://prueba-cesde.onrender.com/swagger-ui/index.html#/ (actualización hecha después de la prueba. La app fue desplegada en un servidor remote gratuito; por lo tanto, el usuario puede acceder a la documentación sin necesidad de descargar el repositorio y correrlo en local)
 
 📌 Instalación y Ejecución
 
