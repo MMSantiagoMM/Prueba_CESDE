@@ -2,8 +2,9 @@ package com.example.pruebaCesde.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
-@Document
+@Document(collection = "Docente")
 public class Docente {
 
     @Id
