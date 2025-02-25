@@ -1,7 +1,5 @@
 package com.example.pruebaCesde.dto;
 
-import java.time.LocalDateTime;
-
 public class CursoDTO {
 
     private String nombreCurso;
@@ -14,15 +12,15 @@ public class CursoDTO {
 
     private String fechaYHora;
 
-    private String docente;
+    private String documentoDocente;
 
 
     public CursoDTO() {
     }
 
-    public CursoDTO(String nombreCurso, String docente, String fechaYHora, Double precioCurso, Integer duracionCurso, String description) {
+    public CursoDTO(String nombreCurso, String documentoDocente, String fechaYHora, Double precioCurso, Integer duracionCurso, String description) {
         this.nombreCurso = nombreCurso;
-        this.docente = docente;
+        this.documentoDocente = documentoDocente;
         this.fechaYHora = fechaYHora;
         this.precioCurso = precioCurso;
         this.duracionCurso = duracionCurso;
@@ -70,11 +68,11 @@ public class CursoDTO {
         this.fechaYHora = fechaYHora;
     }
 
-    public String getDocente() {
-        return docente;
+    public String getDocumentoDocente() {
+        return documentoDocente;
     }
 
-    public void setDocente(String docente) {
-        this.docente = docente;
+    public void setDocumentoDocente(String documentoDocente) {
+        this.documentoDocente = documentoDocente;
     }
 }

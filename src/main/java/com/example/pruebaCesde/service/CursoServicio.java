@@ -1,9 +1,7 @@
 package com.example.pruebaCesde.service;
 
 import com.example.pruebaCesde.dto.CursoDTO;
-import com.example.pruebaCesde.dto.DocenteDTO;
 import com.example.pruebaCesde.entities.Curso;
-import com.example.pruebaCesde.entities.Docente;
 import com.example.pruebaCesde.repositories.CursoRepositorio;
 import com.example.pruebaCesde.repositories.DocenteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +35,7 @@ public class CursoServicio {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime dateTime = LocalDateTime.parse(dto.getFechaYHora(), formatter);
         curso.setFechaYHora(dateTime);
-        curso.setDocente(docenteRepositorio.findByDocumento(dto.getDocente()).get());
+        curso.setDocente(docenteRepositorio.findByDocumento(dto.getDocumentoDocente()).get());
 
         return cursoRepositorio.save(curso);
 
@@ -61,7 +59,7 @@ public class CursoServicio {
                     curso.setDuracionCurso(dto.getDuracionCurso());
                     curso.setPrecioCurso(dto.getPrecioCurso());
                     //curso.setFechaYHora(dto.getFechaYHora());
-                    curso.setDocente(docenteRepositorio.findByDocumento(dto.getDocente()).get());
+                    curso.setDocente(docenteRepositorio.findByDocumento(dto.getDocumentoDocente()).get());
 
                     return cursoRepositorio.save(curso);
                 })
