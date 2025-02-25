@@ -5,9 +5,12 @@ import com.example.pruebaCesde.dto.DocenteDTO;
 import com.example.pruebaCesde.entities.Curso;
 import com.example.pruebaCesde.entities.Docente;
 import com.example.pruebaCesde.repositories.CursoRepositorio;
+import com.example.pruebaCesde.repositories.DocenteRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,11 +19,12 @@ public class CursoServicio {
 
 
     @Autowired
-    private final CursoRepositorio cursoRepositorio;
+    private CursoRepositorio cursoRepositorio;
 
-    public CursoServicio(CursoRepositorio cursoRepositorio) {
-        this.cursoRepositorio = cursoRepositorio;
-    }
+    @Autowired
+    private DocenteRepositorio docenteRepositorio;
+
+
 
     public Curso crearCurso(CursoDTO dto){
 
@@ -30,8 +34,10 @@ public class CursoServicio {
         curso.setDescription(dto.getDescription());
         curso.setDuracionCurso(dto.getDuracionCurso());
         curso.setPrecioCurso(dto.getPrecioCurso());
-        curso.setFechaYHora(dto.getFechaYHora());
-        curso.setDocente(dto.getDocente());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(dto.getFechaYHora(), formatter);
+        curso.setFechaYHora(dateTime);
+        curso.setDocente(docenteRepositorio.findByDocumento(dto.getDocente()).get());
 
         return cursoRepositorio.save(curso);
 
@@ -54,8 +60,8 @@ public class CursoServicio {
                     curso.setDescription(dto.getDescription());
                     curso.setDuracionCurso(dto.getDuracionCurso());
                     curso.setPrecioCurso(dto.getPrecioCurso());
-                    curso.setFechaYHora(dto.getFechaYHora());
-                    curso.setDocente(dto.getDocente());
+                    //curso.setFechaYHora(dto.getFechaYHora());
+                    curso.setDocente(docenteRepositorio.findByDocumento(dto.getDocente()).get());
 
                     return cursoRepositorio.save(curso);
                 })

@@ -5,9 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 
-@Document("Curso")
+@Document(collection = "Curso")
 public class Curso {
 
     @Id
@@ -22,6 +23,7 @@ public class Curso {
     private LocalDateTime fechaYHora;
 
     private Docente docente;
+
 
     public Curso() {
     }

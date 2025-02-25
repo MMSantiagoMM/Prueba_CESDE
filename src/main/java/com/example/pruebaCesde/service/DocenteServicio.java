@@ -23,7 +23,7 @@ public class DocenteServicio {
 
 
     public Optional<Docente> obtenerDocente(String documento){
-        return Optional.of(docenteRepositorio.findById(documento)).orElseThrow(()-> new RuntimeException());
+        return Optional.of(docenteRepositorio.findByDocumento(documento)).orElseThrow(()-> new RuntimeException());
     }
 
     public List<Docente> obtenerTodos(){
@@ -41,7 +41,7 @@ public class DocenteServicio {
     }
 
     public Docente actualizarDocente(DocenteDTO dto, String documento) {
-        return docenteRepositorio.findById(documento)
+        return docenteRepositorio.findByDocumento(documento)
                 .map(docente -> {
                     docente.setNombre(dto.getNombre());
                     docente.setCorreo(dto.getCorreo());
